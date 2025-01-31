@@ -1,0 +1,384 @@
+{
+  "last_node_id": 170,
+  "last_link_id": 260,
+  "nodes": [
+    {
+      "id": 149,
+      "type": "KSampler SDXL (Eff.)",
+      "pos": [
+        850,
+        30
+      ],
+      "size": {
+        "0": 541.79833984375,
+        "1": 892.9478149414062
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "sdxl_tuple",
+          "type": "SDXL_TUPLE",
+          "link": 237,
+          "label": "SDXL元组"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 238,
+          "slot_index": 1,
+          "label": "Latent"
+        },
+        {
+          "name": "optional_vae",
+          "type": "VAE",
+          "link": 239,
+          "label": "VAE"
+        },
+        {
+          "name": "script",
+          "type": "SCRIPT",
+          "link": null,
+          "label": "脚本",
+          "slot_index": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SDXL_TUPLE",
+          "type": "SDXL_TUPLE",
+          "links": null,
+          "shape": 3,
+          "label": "SDXL元组"
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": null,
+          "shape": 3,
+          "label": "Latent"
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": null,
+          "shape": 3,
+          "label": "VAE"
+        },
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [],
+          "shape": 3,
+          "label": "图像",
+          "slot_index": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler SDXL (Eff.)"
+      },
+      "widgets_values": [
+        "Sample",
+        -1,
+        null,
+        30,
+        6,
+        "dpmpp_2m",
+        "karras",
+        0,
+        20,
+        "auto",
+        "true"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 161,
+      "type": "SDXLPromptStyler",
+      "pos": [
+        410,
+        430
+      ],
+      "size": {
+        "0": 430,
+        "1": 164
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_negative",
+          "type": "STRING",
+          "link": 260,
+          "widget": {
+            "name": "text_negative",
+            "config": [
+              "STRING",
+              {
+                "default": "",
+                "multiline": true
+              }
+            ]
+          },
+          "label": "负面提示词",
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text_positive",
+          "type": "STRING",
+          "links": [
+            243
+          ],
+          "shape": 3,
+          "label": "正面提示词",
+          "slot_index": 0
+        },
+        {
+          "name": "text_negative",
+          "type": "STRING",
+          "links": [
+            244
+          ],
+          "shape": 3,
+          "label": "负面提示词",
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SDXLPromptStyler"
+      },
+      "widgets_values": [
+        "1girl",
+        "nsfw,FastNegativeV2,(bad-artist:1),(worst quality, low quality:1.4),(bad_prompt_version2:0.8),bad-hands-5,lowres,bad anatomy,bad hands,((text)),(watermark),error,missing fingers,extra digit,fewer digits,cropped,worst quality,low quality,normal quality,((username)),blurry,(extra limbs),bad-artist-anime,badhandv4,EasyNegative,ng_deepnegative_v1_75t, verybadimagenegative_v1.3_2,BadDream,(three hands:1.6),(three legs:1.1),(more than two hands:1.4),(more than two legs,:1.2),unaestheticXLv31,",
+        "官方-无风格",
+        "No"
+      ]
+    },
+    {
+      "id": 167,
+      "type": "PresetText|pysssss",
+      "pos": [
+        420,
+        640
+      ],
+      "size": {
+        "0": 430,
+        "1": 82
+      },
+      "flags": {
+        "collapsed": true
+      },
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [
+            260
+          ],
+          "slot_index": 0,
+          "label": "text"
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "常用反向描述词",
+        "Manage"
+      ]
+    },
+    {
+      "id": 150,
+      "type": "Eff. Loader SDXL",
+      "pos": [
+        410,
+        30
+      ],
+      "size": {
+        "0": 430,
+        "1": 366
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora_stack",
+          "type": "LORA_STACK",
+          "link": null,
+          "label": "LoRA堆"
+        },
+        {
+          "name": "cnet_stack",
+          "type": "CONTROL_NET_STACK",
+          "link": null,
+          "label": "ControlNet堆"
+        },
+        {
+          "name": "positive",
+          "type": "STRING",
+          "link": 243,
+          "widget": {
+            "name": "positive",
+            "config": [
+              "STRING",
+              {
+                "default": "Positive",
+                "multiline": true
+              }
+            ]
+          },
+          "label": "正面提示词"
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "link": 244,
+          "widget": {
+            "name": "negative",
+            "config": [
+              "STRING",
+              {
+                "default": "Negative",
+                "multiline": true
+              }
+            ]
+          },
+          "label": "负面提示词"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SDXL_TUPLE",
+          "type": "SDXL_TUPLE",
+          "links": [
+            237
+          ],
+          "shape": 3,
+          "slot_index": 0,
+          "label": "SDXL元组"
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            238
+          ],
+          "shape": 3,
+          "label": "Latent"
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            239
+          ],
+          "shape": 3,
+          "slot_index": 2,
+          "label": "VAE"
+        },
+        {
+          "name": "DEPENDENCIES",
+          "type": "DEPENDENCIES",
+          "links": null,
+          "shape": 3,
+          "label": "依赖"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Eff. Loader SDXL"
+      },
+      "widgets_values": [
+        "SDXL模型\\幻想XL.safetensors",
+        -2,
+        "SDXL模型\\sd_xl_refiner_1.0_0.9vae.safetensors",
+        -2,
+        6,
+        2,
+        "sdxl_vae.safetensors",
+        "A crowd gathered together, with fearful expressions on their faces, eyes wide open and mouths agape, by Makoto Shinkai --niji 5",
+        "bad quality, deformed,extra finger,bad hand,extra hand,hands in pockets,",
+        1024,
+        1024,
+        1
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    }
+  ],
+  "links": [
+    [
+      160,
+      109,
+      0,
+      55,
+      5,
+      "SCRIPT"
+    ],
+    [
+      168,
+      111,
+      0,
+      109,
+      1,
+      "XY"
+    ],
+    [
+      237,
+      150,
+      0,
+      149,
+      0,
+      "SDXL_TUPLE"
+    ],
+    [
+      238,
+      150,
+      1,
+      149,
+      1,
+      "LATENT"
+    ],
+    [
+      239,
+      150,
+      2,
+      149,
+      2,
+      "VAE"
+    ],
+    [
+      243,
+      161,
+      0,
+      150,
+      2,
+      "STRING"
+    ],
+    [
+      244,
+      161,
+      1,
+      150,
+      3,
+      "STRING"
+    ],
+    [
+      260,
+      167,
+      0,
+      161,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
